@@ -11,20 +11,20 @@ const Cart = () => {
 
     if (cart.length === 0) {
         return (
-            <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-6 animate-in zoom-in-95 duration-500 glass-card border-slate-200/60 dark:border-slate-800/60 max-w-3xl mx-auto rounded-[3rem] py-20 mt-10 shadow-xl shadow-brand-500/5">
-                <div className="bg-gradient-to-br from-brand-100 to-white dark:from-brand-900/40 dark:to-transparent p-8 rounded-[2.5rem] text-brand-500 dark:text-brand-400 mb-8 border border-white dark:border-slate-700 shadow-inner">
-                    <ShoppingBag className="h-24 w-24 opacity-80" />
+            <div className="flex flex-col items-center justify-center min-h-[40vh] text-center px-6 animate-in zoom-in-95 duration-500 glass-card border-slate-200/60 dark:border-slate-800/60 max-w-xl mx-auto rounded-[2rem] py-12 mt-10 shadow-lg shadow-brand-500/5">
+                <div className="bg-gradient-to-br from-brand-100 to-white dark:from-brand-900/40 dark:to-transparent p-6 rounded-3xl text-brand-500 dark:text-brand-400 mb-6 border border-white dark:border-slate-700 shadow-inner">
+                    <ShoppingBag className="h-16 w-16 opacity-80" />
                 </div>
-                <h2 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight drop-shadow-sm">Your cart is empty</h2>
-                <p className="text-slate-500 dark:text-slate-400 max-w-md mb-10 text-xl font-medium">
+                <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-3 tracking-tight drop-shadow-sm">Your cart is empty</h2>
+                <p className="text-slate-500 dark:text-slate-400 max-w-sm mb-8 text-base font-medium">
                     Looks like you haven't added any products to your cart yet.
                 </p>
                 <Link
                     to="/products"
-                    className="btn-primary inline-flex items-center gap-3 px-10 py-5 text-lg shadow-brand-500/30 font-extrabold"
+                    className="btn-primary inline-flex items-center gap-2 px-8 py-3.5 text-base shadow-brand-500/20 font-bold"
                 >
                     Start Shopping
-                    <ArrowRight className="w-6 h-6 ml-1" />
+                    <ArrowRight className="w-5 h-5 ml-1" />
                 </Link>
             </div>
         );

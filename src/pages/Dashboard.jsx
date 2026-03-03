@@ -66,22 +66,26 @@ const Dashboard = () => {
             </div>
 
             {/* Decorative banner */}
-            <div className="mt-10 bg-gradient-to-br from-brand-600 via-indigo-700 to-purple-800 dark:from-brand-800 dark:via-indigo-900 dark:to-purple-900 rounded-[2.5rem] p-10 sm:p-14 text-white shadow-2xl shadow-brand-900/20 relative overflow-hidden group">
+            <div className="mt-8 bg-gradient-to-br from-brand-600 via-indigo-700 to-purple-800 dark:from-brand-800 dark:via-indigo-900 dark:to-purple-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl shadow-brand-900/10 relative overflow-hidden group">
                 <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGgyMHYyMEgwVjB6bTE5IDE5VjFIMUMxdjE4aDE4eiIgZmlsbD0icmdiYSgyNTUsIDI1NSLCAyNTUsIDAuMDUpIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiLz48L3N2Zz4=')]"></div>
-                <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-20 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3 group-hover:scale-125 transition-transform duration-1000"></div>
-                <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-300 opacity-20 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3 group-hover:scale-125 transition-transform duration-1000 delay-100"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-20 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3 group-hover:scale-110 transition-transform duration-1000"></div>
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand-300 opacity-20 rounded-full blur-3xl transform -translate-x-1/3 translate-y-1/3 group-hover:scale-110 transition-transform duration-1000 delay-100"></div>
 
-                <div className="relative z-10 max-w-2xl">
-                    <span className="inline-block px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-md text-xs font-bold tracking-widest uppercase mb-6 shadow-sm border border-white/20 text-white/90">
-                        Just Arrived
-                    </span>
-                    <h2 className="text-4xl sm:text-5xl font-extrabold mb-4 tracking-tight drop-shadow-sm">Discover New Collection</h2>
-                    <p className="text-brand-100/90 mb-10 text-lg sm:text-xl leading-relaxed font-medium">
-                        Check out the latest products added to our catalog. We've updated our inventory with premium items you'll absolutely love.
-                    </p>
+                <div className="relative z-10 max-w-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <div>
+                        <div className="flex items-center gap-3 mb-2">
+                            <span className="inline-block px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-xs font-bold tracking-widest uppercase shadow-sm border border-white/20 text-white/90">
+                                Just Arrived
+                            </span>
+                        </div>
+                        <h2 className="text-2xl sm:text-3xl font-bold mb-2 tracking-tight drop-shadow-sm">Discover New Collection</h2>
+                        <p className="text-brand-100/90 text-sm sm:text-base leading-relaxed font-medium">
+                            Check out the latest products added to our catalog. We've updated our inventory with premium items you'll absolutely love.
+                        </p>
+                    </div>
                     <Link
                         to="/products"
-                        className="inline-flex items-center gap-3 bg-white text-brand-700 px-8 py-4 rounded-2xl font-bold hover:bg-slate-50 hover:scale-[1.02] transition-all shadow-xl shadow-brand-900/30 active:scale-95 group/btn"
+                        className="inline-flex items-center justify-center shrink-0 gap-2 bg-white text-brand-700 px-6 py-3 rounded-xl font-bold hover:bg-slate-50 hover:scale-[1.02] transition-all shadow-lg shadow-brand-900/20 active:scale-95 group/btn"
                     >
                         Start Shopping
                         <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
