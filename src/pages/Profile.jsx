@@ -57,33 +57,34 @@ const Profile = () => {
         <div className="max-w-3xl mx-auto space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Profile Settings</h1>
-                    <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+                    <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">Profile Settings</h1>
+                    <p className="mt-2 text-base font-medium text-slate-500 dark:text-slate-400">
                         Manage your account details and security preferences.
                     </p>
                 </div>
             </div>
 
-            <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 overflow-hidden glass-card">
+            <div className="glass-card rounded-[2.5rem] shadow-xl border border-slate-200/60 dark:border-slate-700/60 overflow-hidden">
                 {/* Header decoration */}
-                <div className="h-32 bg-gradient-to-r from-brand-600 to-indigo-600 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-white/10" style={{ backgroundImage: 'radial-gradient(circle, transparent 20%, white 20%, white 80%, transparent 80%, transparent)' }}></div>
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                <div className="h-40 bg-gradient-to-r from-brand-600 via-indigo-600 to-brand-700 relative overflow-hidden">
+                    <div className="absolute inset-0 bg-white/10 mix-blend-overlay" style={{ backgroundImage: 'radial-gradient(circle, transparent 20%, white 20%, white 80%, transparent 80%, transparent)' }}></div>
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-white opacity-20 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                    <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-300 opacity-20 rounded-full blur-2xl transform -translate-x-1/2 translate-y-1/2"></div>
                 </div>
 
-                <div className="px-6 sm:px-10 pb-10">
-                    <div className="relative -mt-16 mb-8 flex items-end justify-between">
-                        <div className="w-32 h-32 rounded-3xl bg-white dark:bg-slate-800 p-2 shadow-lg border border-slate-100 dark:border-slate-700 relative group">
-                            <div className="absolute inset-0 bg-brand-500/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div className="w-full h-full bg-brand-50 dark:bg-brand-900/30 rounded-2xl flex items-center justify-center text-brand-600 dark:text-brand-400">
-                                <User className="w-12 h-12" />
+                <div className="px-6 sm:px-12 pb-12">
+                    <div className="relative -mt-20 mb-10 flex items-end justify-between">
+                        <div className="w-36 h-36 rounded-[2rem] bg-white/80 dark:bg-slate-800/80 backdrop-blur-xl p-3 shadow-2xl border border-white dark:border-slate-700 relative group">
+                            <div className="absolute inset-0 bg-brand-500/10 rounded-[2rem] opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                            <div className="w-full h-full bg-gradient-to-br from-brand-50 to-indigo-50 dark:from-brand-900/40 dark:to-indigo-900/40 rounded-2xl flex items-center justify-center text-brand-600 dark:text-brand-400 border border-brand-100 dark:border-brand-800/30">
+                                <User className="w-14 h-14" />
                             </div>
                         </div>
 
                         {!isEditing && (
                             <button
                                 onClick={() => setIsEditing(true)}
-                                className="px-6 py-2.5 bg-brand-50 hover:bg-brand-100 dark:bg-brand-900/30 dark:hover:bg-brand-900/50 text-brand-700 dark:text-brand-400 font-bold rounded-xl transition-colors border border-brand-100 dark:border-brand-800 shadow-sm active:scale-95"
+                                className="px-6 py-3 bg-white dark:bg-slate-800 hover:bg-brand-50 dark:hover:bg-slate-700 text-brand-700 dark:text-brand-400 font-extrabold rounded-xl transition-colors border border-slate-200 dark:border-slate-700 shadow-sm shadow-brand-500/5 active:scale-95"
                             >
                                 Edit Profile
                             </button>
@@ -91,7 +92,7 @@ const Profile = () => {
                     </div>
 
                     {message.text && (
-                        <div className={`mb-8 p-4 rounded-2xl flex items-start gap-3 border animate-in fade-in zoom-in duration-300 ${message.type === 'success'
+                        <div className={`mb-8 p-4 rounded-2xl flex items-start gap-3 border animate-in fade-in zoom-in duration-300 shadow-sm ${message.type === 'success'
                             ? 'bg-emerald-50 dark:bg-emerald-900/20 text-emerald-800 dark:text-emerald-400 border-emerald-100 dark:border-emerald-800/30'
                             : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-400 border-red-100 dark:border-red-800/30'
                             }`}>
@@ -100,30 +101,30 @@ const Profile = () => {
                             ) : (
                                 <AlertCircle className="w-6 h-6 text-red-500 flex-shrink-0" />
                             )}
-                            <div className="font-medium text-sm leading-6">{message.text}</div>
+                            <div className="font-bold text-sm leading-6">{message.text}</div>
                         </div>
                     )}
 
-                    <form onSubmit={handleSubmit} className="space-y-8">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <form onSubmit={handleSubmit} className="space-y-10">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                             {/* Personal Information */}
-                            <div className="space-y-5">
-                                <h3 className="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2 mb-4">
+                            <div className="space-y-6">
+                                <h3 className="text-xl font-extrabold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700/50 pb-3 mb-6">
                                     Personal Information
                                 </h3>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5" htmlFor="name">
+                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 ml-1" htmlFor="name">
                                         Full Name
                                     </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                            <User className="h-5 w-5 text-slate-400 dark:text-slate-500" />
+                                    <div className="relative group">
+                                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <User className={`h-5 w-5 transition-colors ${isEditing ? 'text-slate-400 group-focus-within:text-brand-500' : 'text-slate-300 dark:text-slate-600'}`} />
                                         </div>
                                         <input
                                             id="name"
                                             type="text"
-                                            className="block w-full pl-10 pr-3 py-3 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-slate-50 dark:bg-slate-800 text-sm transition-all outline-none disabled:opacity-70 disabled:bg-slate-100 dark:disabled:bg-slate-800/50 font-medium text-slate-900 dark:text-white disabled:cursor-not-allowed"
+                                            className={`input-premium pl-11 disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-slate-50/50 dark:disabled:bg-slate-800/30 ${!isEditing ? 'border-dashed' : ''}`}
                                             value={name}
                                             onChange={(e) => setName(e.target.value)}
                                             disabled={!isEditing}
@@ -132,17 +133,17 @@ const Profile = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5" htmlFor="email">
+                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 ml-1" htmlFor="email">
                                         Email Address
                                     </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                            <Mail className="h-5 w-5 text-slate-400 dark:text-slate-500" />
+                                    <div className="relative group">
+                                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <Mail className={`h-5 w-5 transition-colors ${isEditing ? 'text-slate-400 group-focus-within:text-brand-500' : 'text-slate-300 dark:text-slate-600'}`} />
                                         </div>
                                         <input
                                             id="email"
                                             type="email"
-                                            className="block w-full pl-10 pr-3 py-3 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-slate-50 dark:bg-slate-800 text-sm transition-all outline-none disabled:opacity-70 disabled:bg-slate-100 dark:disabled:bg-slate-800/50 font-medium text-slate-900 dark:text-white disabled:cursor-not-allowed"
+                                            className={`input-premium pl-11 disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-slate-50/50 dark:disabled:bg-slate-800/30 ${!isEditing ? 'border-dashed' : ''}`}
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             disabled={!isEditing}
@@ -152,24 +153,25 @@ const Profile = () => {
                             </div>
 
                             {/* Security */}
-                            <div className="space-y-5">
-                                <h3 className="text-lg font-bold text-slate-900 dark:text-white border-b border-slate-100 dark:border-slate-800 pb-2 mb-4 flex items-center gap-2">
-                                    <ShieldCheck className="w-5 h-5 text-brand-500 dark:text-brand-400" />
+                            <div className="space-y-6">
+                                <h3 className="text-xl font-extrabold text-slate-900 dark:text-white border-b border-slate-200 dark:border-slate-700/50 pb-3 mb-6 flex items-center gap-2 relative">
+                                    <ShieldCheck className="w-6 h-6 text-brand-500 dark:text-brand-400" />
                                     Security Controls
+                                    {!isEditing && <span className="absolute right-0 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-md">Protected</span>}
                                 </h3>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5" htmlFor="currentPassword">
+                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 ml-1" htmlFor="currentPassword">
                                         Current Password {isEditing && <span className="text-red-500">*</span>}
                                     </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                            <Lock className="h-5 w-5 text-slate-400 dark:text-slate-500" />
+                                    <div className="relative group">
+                                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <Lock className={`h-5 w-5 transition-colors ${isEditing ? 'text-slate-400 group-focus-within:text-brand-500' : 'text-slate-300 dark:text-slate-600'}`} />
                                         </div>
                                         <input
                                             id="currentPassword"
                                             type="password"
-                                            className="block w-full pl-10 pr-3 py-3 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm transition-all outline-none disabled:opacity-70 disabled:bg-slate-100 dark:disabled:bg-slate-800/50 disabled:cursor-not-allowed"
+                                            className={`input-premium pl-11 disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-slate-50/50 dark:disabled:bg-slate-800/30 ${!isEditing ? 'border-dashed' : ''}`}
                                             value={currentPassword}
                                             onChange={(e) => setCurrentPassword(e.target.value)}
                                             disabled={!isEditing}
@@ -179,17 +181,17 @@ const Profile = () => {
                                 </div>
 
                                 <div>
-                                    <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5" htmlFor="newPassword">
+                                    <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 ml-1" htmlFor="newPassword">
                                         New Password
                                     </label>
-                                    <div className="relative">
-                                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                                            <Lock className="h-5 w-5 text-slate-400 dark:text-slate-500" />
+                                    <div className="relative group">
+                                        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                                            <Lock className={`h-5 w-5 transition-colors ${isEditing ? 'text-slate-400 group-focus-within:text-brand-500' : 'text-slate-300 dark:text-slate-600'}`} />
                                         </div>
                                         <input
                                             id="newPassword"
                                             type="password"
-                                            className="block w-full pl-10 pr-3 py-3 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm transition-all outline-none disabled:opacity-70 disabled:bg-slate-100 dark:disabled:bg-slate-800/50 disabled:cursor-not-allowed"
+                                            className={`input-premium pl-11 disabled:opacity-60 disabled:cursor-not-allowed disabled:bg-slate-50/50 dark:disabled:bg-slate-800/30 ${!isEditing ? 'border-dashed' : ''}`}
                                             value={newPassword}
                                             onChange={(e) => setNewPassword(e.target.value)}
                                             disabled={!isEditing}
@@ -201,7 +203,7 @@ const Profile = () => {
                         </div>
 
                         {isEditing && (
-                            <div className="pt-6 mt-8 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom-2 duration-300">
+                            <div className="pt-8 mt-10 border-t border-slate-200 dark:border-slate-700/50 flex flex-col-reverse sm:flex-row items-center justify-end gap-3 sm:gap-4 animate-in fade-in slide-in-from-bottom-4 duration-300">
                                 <button
                                     type="button"
                                     onClick={() => {
@@ -212,13 +214,13 @@ const Profile = () => {
                                         setNewPassword('');
                                         setMessage({ type: '', text: '' });
                                     }}
-                                    className="px-6 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors active:scale-95"
+                                    className="w-full sm:w-auto px-8 py-3 bg-white/50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-extrabold rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-all active:scale-95"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
-                                    className="px-8 py-2.5 bg-brand-600 text-white font-bold rounded-xl hover:bg-brand-700 transition-all shadow-md active:scale-95"
+                                    className="btn-primary w-full sm:w-auto px-10 py-3 shadow-brand-500/30 font-extrabold"
                                 >
                                     Save Changes
                                 </button>

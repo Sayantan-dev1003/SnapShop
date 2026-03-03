@@ -11,18 +11,18 @@ const navigation = [
 
 const Sidebar = ({ closeSidebar }) => {
     return (
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-6 pb-4 h-full shadow-sm transition-colors">
-            <div className="flex h-16 shrink-0 items-center justify-between">
-                <Link to="/" className="flex items-center gap-2 group">
-                    <div className="bg-brand-600 p-2 rounded-xl group-hover:scale-105 transition-transform shadow-md shadow-brand-200">
+        <div className="flex flex-col h-full gap-y-5 overflow-y-auto glass-card px-6 pb-4 transition-all duration-300">
+            <div className="flex h-20 shrink-0 items-center justify-between">
+                <Link to="/" className="flex items-center gap-3 group px-2">
+                    <div className="bg-gradient-to-br from-brand-500 to-brand-700 p-2.5 rounded-xl group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-brand-500/30 transition-all duration-300 shadow-md">
                         <ShoppingBasket className="h-6 w-6 text-white" />
                     </div>
-                    <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-700 to-brand-500 tracking-tight">
+                    <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 tracking-tight">
                         SnapShop
                     </span>
                 </Link>
                 <button
-                    className="lg:hidden p-2 -mr-2 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors"
+                    className="lg:hidden p-2 -mr-2 text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 rounded-lg hover:bg-slate-100/50 dark:hover:bg-slate-800/50 transition-colors"
                     onClick={closeSidebar}
                 >
                     <X className="h-6 w-6" />
@@ -31,27 +31,36 @@ const Sidebar = ({ closeSidebar }) => {
             <nav className="flex flex-1 flex-col mt-4">
                 <ul role="list" className="flex flex-1 flex-col gap-y-7">
                     <li>
-                        <ul role="list" className="-mx-2 space-y-2">
+                        <ul role="list" className="space-y-2">
                             {navigation.map((item) => (
                                 <li key={item.name}>
                                     <NavLink
                                         to={item.href}
                                         onClick={closeSidebar}
                                         className={({ isActive }) => `
-                      group flex gap-x-3 rounded-xl p-3 text-sm leading-6 font-medium transition-all duration-200
+                      group flex gap-x-4 rounded-xl p-3.5 text-sm leading-6 font-semibold transition-all duration-300 relative overflow-hidden
                       ${isActive
-                                                ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/30 dark:text-brand-400 shadow-sm'
-                                                : 'text-slate-600 hover:text-brand-600 hover:bg-slate-50 dark:text-slate-400 dark:hover:text-brand-400 dark:hover:bg-slate-800'
+                                                ? 'text-brand-700 dark:text-brand-300 shadow-sm'
+                                                : 'text-slate-600 hover:text-brand-600 dark:text-slate-400 dark:hover:text-brand-300'
                                             }
                     `}
                                     >
                                         {({ isActive }) => (
                                             <>
+                                                {/* Active background highlight */}
+                                                {isActive && (
+                                                    <div className="absolute inset-0 bg-gradient-to-r from-brand-100/80 to-transparent dark:from-brand-900/40 dark:to-transparent opacity-100 rounded-xl" />
+                                                )}
+                                                {/* Active border indicator */}
+                                                {isActive && (
+                                                    <div className="absolute left-0 top-0 bottom-0 w-1 bg-brand-500 rounded-l-xl" />
+                                                )}
+
                                                 <item.icon
-                                                    className={`h-6 w-6 shrink-0 transition-colors ${isActive ? 'text-brand-600 dark:text-brand-400' : 'text-slate-400 group-hover:text-brand-600 dark:group-hover:text-brand-400'}`}
+                                                    className={`h-6 w-6 shrink-0 z-10 transition-colors duration-300 ${isActive ? 'text-brand-600 dark:text-brand-400' : 'text-slate-400 group-hover:text-brand-500 dark:group-hover:text-brand-400'}`}
                                                     aria-hidden="true"
                                                 />
-                                                {item.name}
+                                                <span className="z-10">{item.name}</span>
                                             </>
                                         )}
                                     </NavLink>

@@ -75,26 +75,26 @@ const Products = () => {
                 </div>
             </div>
 
-            <div className="bg-white dark:bg-slate-900 p-4 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row gap-4 glass-card z-10 relative">
+            <div className="glass-panel p-5 rounded-[2rem] shadow-lg border border-slate-200/60 dark:border-slate-700/60 flex flex-col sm:flex-row gap-5 z-10 relative mb-2">
                 <div className="relative flex-1 group">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                        <Search className="h-5 w-5 text-slate-400 dark:text-slate-500 group-focus-within:text-brand-500 transition-colors" />
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                        <Search className="h-5 w-5 text-slate-400 group-focus-within:text-brand-500 transition-colors" />
                     </div>
                     <input
                         type="text"
-                        className="block w-full pl-10 pr-3 py-3 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white text-sm transition-all outline-none"
+                        className="input-premium pl-12 h-14"
                         placeholder="Search products by title..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
                 </div>
 
-                <div className="sm:w-64 flex items-center gap-2 group relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none z-10">
-                        <Filter className="h-5 w-5 text-slate-400 dark:text-slate-500 group-focus-within:text-brand-500 transition-colors" />
+                <div className="sm:w-72 flex items-center gap-2 group relative">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none z-10">
+                        <Filter className="h-5 w-5 text-slate-400 group-focus-within:text-brand-500 transition-colors" />
                     </div>
                     <select
-                        className="block w-full py-3 pl-10 pr-10 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-slate-50 dark:bg-slate-800 text-sm appearance-none outline-none cursor-pointer hover:bg-white dark:hover:bg-slate-700 transition-colors capitalize font-medium text-slate-700 dark:text-slate-300 relative z-0"
+                        className="input-premium pl-12 pr-12 h-14 appearance-none cursor-pointer capitalize font-bold text-slate-700 dark:text-slate-200 relative z-0"
                         value={selectedCategory}
                         onChange={(e) => setSelectedCategory(e.target.value)}
                     >
@@ -106,8 +106,8 @@ const Products = () => {
                         ))}
                     </select>
                     {/* Custom dropdown arrow */}
-                    <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none z-10">
-                        <svg className="h-4 w-4 text-slate-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none z-10">
+                        <svg className="h-5 w-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path></svg>
                     </div>
                 </div>
             </div>
